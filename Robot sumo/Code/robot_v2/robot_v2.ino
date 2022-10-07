@@ -14,35 +14,19 @@ SoftwareSerial BTSerial(10, 11); // RX | TX
 #define RIGHT_FORWARD HIGH
 #define RIGHT_BACKWARD LOW
 
-void driveMotors(int left, int right) 
+void driveMotors(int lmot, int rmot) 
 {
-  if (left > 0) 
-  {
-    digitalWrite(LEFT_DIR, LEFT_FORWARD);
-    analogWrite(LEFT_SPEED, left);
-  } 
-  else 
-  {
-    digitalWrite(LEFT_DIR, LEFT_BACKWARD);
-    analogWrite(LEFT_SPEED, -left);
-  }
-  if (right > 0) 
-  {
-    digitalWrite(RIGHT_DIR, RIGHT_FORWARD);
-    analogWrite(RIGHT_SPEED, right);
-  } 
-  else 
-  {
-    digitalWrite(RIGHT_DIR, RIGHT_BACKWARD);
-    analogWrite(RIGHT_SPEED, -right);
-  }
+  digitalWrite(LEFT_DIR, LEFT_BACKWARD);
+  analogWrite(LEFT_SPEED, lmot);
+  digitalWrite(RIGHT_DIR, RIGHT_FORWARD);
+  analogWrite(RIGHT_SPEED, rmot);
 }
 
 void setup() 
 {
   //Serial.begin(38400);
   BTSerial.begin(38400);
-  
+  Serial.begin(38400);
   pinMode(LEFT_DIR, OUTPUT);
   pinMode(RIGHT_DIR, OUTPUT);
   pinMode(LEFT_SPEED, OUTPUT);
@@ -54,12 +38,10 @@ void loop()
   if (BTSerial.available())
   {
     uint32_t data = BTSerial.parseInt();
-    uint16_t XAxisData = data & 0x3FF;
-    uint16_t YAxisData = (data>>10) & 0x3FF;
-
-    int left = constrain((YAxisData-512)/5.0 + (XAxisData-512)/2.0, -255, 255);
-    int right = constrain(-(YAxisData-512)/5.0 + (XAxisData-512)/2.0, -255, 255);
-    driveMotors(left, right);
+    uint16_t lmot = data & 0xFFFF;
+    uint16_t rmot = data>>16;
+    driveMotors(lmot, rmot);
+    Serial.println(lmot); Serial.print("\t"); Serial.println(rmot);
   }
   else 
   {
