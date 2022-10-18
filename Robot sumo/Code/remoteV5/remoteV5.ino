@@ -44,7 +44,7 @@ void motManagement(int axe_x, int axe_y, uint8_t * lmot, uint8_t * rmot ){
     *rmot=*rmot & 0xFE;
     *lmot=*lmot & 0xFE;     
   }
-  else if(axe_x>512&&axe_y<512{
+  else if(axe_x>512&&axe_y<512){
     axe_x-=512;
     if(axe_y<axe_x){
       *lmot= axe_x>>1;
@@ -59,7 +59,7 @@ void motManagement(int axe_x, int axe_y, uint8_t * lmot, uint8_t * rmot ){
     *lmot=*lmot & 0xFE;
     *lmot=*lmot | 0x01;
   }
-  else{
+  else if(axe_x<512&&axe_y<512){
     axe_x=512-axe_x;
     if(axe_y<axe_x){
       *rmot= axe_x>>1;
@@ -73,6 +73,10 @@ void motManagement(int axe_x, int axe_y, uint8_t * lmot, uint8_t * rmot ){
     *rmot=*rmot | 0x01;
     *lmot=*lmot & 0xFE;
     *lmot=*lmot | 0x01;    
+  }
+  else{
+    *rmot=0;
+    *lmot=0;
   }
 }
 

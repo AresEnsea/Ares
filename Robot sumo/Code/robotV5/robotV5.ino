@@ -16,7 +16,7 @@ SoftwareSerial BTSerial(10, 11); // RX | TX
 
 void driveMotors(int lmot, int rmot) 
 {
-  if((lmot>>7)==0){
+  if((lmot>>7)==1){
     digitalWrite(LEFT_DIR, LEFT_BACKWARD);
     analogWrite(LEFT_SPEED, lmot);
     digitalWrite(RIGHT_DIR, RIGHT_FORWARD);
