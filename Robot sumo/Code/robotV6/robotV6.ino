@@ -22,8 +22,14 @@ void driveMotors(int lmot, int rmot)
     digitalWrite(RIGHT_DIR, RIGHT_FORWARD);
     analogWrite(RIGHT_SPEED, rmot);
   }
-  else{
+  else if((lmot & 0x01)==1) {
     digitalWrite(LEFT_DIR, LEFT_FORWARD);
+    analogWrite(LEFT_SPEED, lmot);
+    digitalWrite(RIGHT_DIR, RIGHT_FORWARD);
+    analogWrite(RIGHT_SPEED, rmot);
+  }
+  else if((rmot & 0x01)==1) {
+    digitalWrite(LEFT_DIR, LEFT_BACKWARD);
     analogWrite(LEFT_SPEED, lmot);
     digitalWrite(RIGHT_DIR, RIGHT_BACKWARD);
     analogWrite(RIGHT_SPEED, rmot);

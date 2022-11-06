@@ -3,6 +3,7 @@
 #define Y_AXIS A2
 #define X_AXIS A1
 #define SW A0
+#define PUISSANCE 2
 
 SoftwareSerial BTSerial(10, 11);  // RX | TX
 
@@ -21,26 +22,50 @@ void motManagement(int axe_x, int axe_y, uint8_t* lmot, uint8_t* rmot) {
     axe_x -= 512;
     axe_y -= 512;
     if (axe_y < axe_x) {
-      *lmot = axe_x >> 1;
-      *rmot = axe_y >> 1;
+      *lmot = axe_x >> PUISSANCE;
+      *rmot = axe_y >> PUISSANCE;
     } else {
-      *lmot = axe_y >> 1;
-      *rmot = axe_y >> 1;
+      *lmot = axe_y >> PUISSANCE;
+      *rmot = axe_y >> PUISSANCE;
     }
-    *lmot=*lmot & 0xFE;
-    *rmot=*rmot & 0xFE;
+    *lmot = *lmot & 0xFE;
+    *rmot = *rmot & 0xFE;
   } else if (axe_x < 512 && axe_y > 512) {
     axe_x = 512 - axe_x;
     axe_y -= 512;
     if (axe_y < axe_x) {
-      *rmot = axe_x >> 1;
-      *lmot = axe_y >> 1;
+      *rmot = axe_x >> PUISSANCE;
+      *lmot = axe_y >> PUISSANCE;
     } else {
-      *rmot = axe_y >> 1;
-      *lmot = axe_y >> 1;
+      *rmot = axe_y >> PUISSANCE;
+      *lmot = axe_y >> PUISSANCE;
     }
-    *lmot=*lmot & 0xFE;
-    *rmot=*rmot & 0xFE;
+    *lmot = *lmot & 0xFE;
+    *rmot = *rmot & 0xFE;
+  } else if (axe_x > 512 && axe_y < 512) {
+    axe_x -= 512;
+    axe_y = 512 - axe_y;
+    if (axe_y < axe_x) {
+      *lmot = axe_x >> PUISSANCE;
+      *rmot = axe_y >> PUISSANCE;
+    } else {
+      *lmot = axe_y >> PUISSANCE;
+      *rmot = axe_y >> PUISSANCE;
+    }
+    *lmot = *lmot & 0xFE;
+    *rmot = *rmot | 0x01;
+  } else if (axe_x < 512 && axe_y < 512) {
+    axe_x = 512 - axe_x;
+    axe_y = 512 - axe_y;
+    if (axe_y < axe_x) {
+      *rmot = axe_x >> PUISSANCE;
+      *lmot = axe_y >> PUISSANCE;
+    } else {
+      *rmot = axe_y >> PUISSANCE;
+      *lmot = axe_y >> PUISSANCE;
+    }
+    *lmot = *lmot | 0x01;
+    *rmot = *rmot & 0xFE;
   } else {
     *rmot = 0;
     *lmot = 0;
