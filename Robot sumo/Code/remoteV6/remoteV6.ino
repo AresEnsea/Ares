@@ -3,7 +3,7 @@
 #define Y_AXIS A2
 #define X_AXIS A1
 #define SW A0
-#define PUISSANCE 2
+#define PUISSANCE 1
 
 SoftwareSerial BTSerial(10, 11);  // RX | TX
 
