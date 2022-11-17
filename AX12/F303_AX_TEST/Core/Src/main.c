@@ -18,6 +18,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "tim.h"
 #include "usart.h"
 #include "gpio.h"
 
@@ -87,23 +88,30 @@ int main(void)
   MX_GPIO_Init();
   MX_USART2_UART_Init();
   MX_USART1_UART_Init();
+  MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
+  HAL_TIM_Base_Start_IT(&htim2);
   AX12 ax12;
   AX12_Init(&ax12, &huart1, 1, BR_250K);
   AX12_pingModule(&ax12);
   AX12_LED_O_N(&ax12, 1);
   AX12_setMovingSpeed(&ax12, 10);
   AX12_setRangeAngle(&ax12, 0, 180);
+  AX12 ax121;
+  AX12_Init(&ax121, &huart1, 7, BR_250K);
+  AX12_pingModule(&ax121);
+  AX12_LED_O_N(&ax121, 7);
+  AX12_setMovingSpeed(&ax121, 10);
+  AX12_setRangeAngle(&ax121, 0, 180);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  AX12_setPosition(&ax12, 0);
-	  HAL_Delay(4000);
 	  AX12_setPosition(&ax12, 180);
-	  HAL_Delay(4000);
+	  AX12_setPosition(&ax121, 180);
+	  HAL_Delay(2000);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
