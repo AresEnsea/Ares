@@ -26,7 +26,7 @@
 /* USER CODE BEGIN Includes */
 #include <stdio.h>
 #include <string.h>
-#include "st7735.h"
+#include "ili9341.h"
 #include "fonts.h"
 /* USER CODE END Includes */
 
@@ -37,8 +37,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define YMAX 5000
-#define YMIN 0
+
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -96,15 +95,74 @@ int main(void)
   MX_SPI1_Init();
   /* USER CODE BEGIN 2 */
   char msg[20];
-  ST7735_Init();
-  ST7735_FillScreen(ST7735_BLACK);
-  ST7735_DrawString(1, 0, "CPU =", ST7735_GREEN);
+  ILI9341_Unselect();
+  ILI9341_Init();
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	// Check border
+	ILI9341_FillScreen(ILI9341_BLACK);
+
+	for(int x = 0; x < ILI9341_WIDTH; x++) {
+	  ILI9341_DrawPixel(x, 0, ILI9341_RED);
+	  ILI9341_DrawPixel(x, ILI9341_HEIGHT-1, ILI9341_RED);
+	}
+
+	for(int y = 0; y < ILI9341_HEIGHT; y++) {
+	  ILI9341_DrawPixel(0, y, ILI9341_RED);
+	  ILI9341_DrawPixel(ILI9341_WIDTH-1, y, ILI9341_RED);
+	}
+
+	HAL_Delay(3000);
+
+	// Check fonts
+	ILI9341_FillScreen(ILI9341_BLACK);
+	ILI9341_WriteString(0, 0, "Font_7x10, red on black, lorem ipsum dolor sit amet", Font_7x10, ILI9341_RED, ILI9341_BLACK);
+	ILI9341_WriteString(0, 3*10, "Font_11x18, green, lorem ipsum dolor sit amet", Font_11x18, ILI9341_GREEN, ILI9341_BLACK);
+	ILI9341_WriteString(0, 3*10+3*18, "Font_16x26, blue, lorem ipsum dolor sit amet", Font_16x26, ILI9341_BLUE, ILI9341_BLACK);
+
+	HAL_Delay(1000);
+	ILI9341_InvertColors(true);
+	HAL_Delay(1000);
+	ILI9341_InvertColors(false);
+
+	HAL_Delay(5000);
+
+	// Check colors
+	ILI9341_FillScreen(ILI9341_WHITE);
+	ILI9341_WriteString(0, 0, "WHITE", Font_11x18, ILI9341_BLACK, ILI9341_WHITE);
+	HAL_Delay(500);
+
+	ILI9341_FillScreen(ILI9341_BLUE);
+	ILI9341_WriteString(0, 0, "BLUE", Font_11x18, ILI9341_BLACK, ILI9341_BLUE);
+	HAL_Delay(500);
+
+	ILI9341_FillScreen(ILI9341_RED);
+	ILI9341_WriteString(0, 0, "RED", Font_11x18, ILI9341_BLACK, ILI9341_RED);
+	HAL_Delay(500);
+
+	ILI9341_FillScreen(ILI9341_GREEN);
+	ILI9341_WriteString(0, 0, "GREEN", Font_11x18, ILI9341_BLACK, ILI9341_GREEN);
+	HAL_Delay(500);
+
+	ILI9341_FillScreen(ILI9341_CYAN);
+	ILI9341_WriteString(0, 0, "CYAN", Font_11x18, ILI9341_BLACK, ILI9341_CYAN);
+	HAL_Delay(500);
+
+	ILI9341_FillScreen(ILI9341_MAGENTA);
+	ILI9341_WriteString(0, 0, "MAGENTA", Font_11x18, ILI9341_BLACK, ILI9341_MAGENTA);
+	HAL_Delay(500);
+
+	ILI9341_FillScreen(ILI9341_YELLOW);
+	ILI9341_WriteString(0, 0, "YELLOW", Font_11x18, ILI9341_BLACK, ILI9341_YELLOW);
+	HAL_Delay(500);
+
+	ILI9341_FillScreen(ILI9341_BLACK);
+	ILI9341_WriteString(0, 0, "BLACK", Font_11x18, ILI9341_WHITE, ILI9341_BLACK);
+	HAL_Delay(500);
 	for(int i=0;i<10;i++){
 		HAL_Delay(2000);
 		int size = snprintf(msg, 20, "a%d\r\n",i);
