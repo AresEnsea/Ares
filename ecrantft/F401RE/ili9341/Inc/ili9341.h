@@ -26,9 +26,11 @@ extern SPI_HandleTypeDef ILI9341_SPI_PORT;
 #define ILI9341_DC_GPIO_Port  GPIOB
 
 // default orientation
+/*
 #define ILI9341_WIDTH  240
 #define ILI9341_HEIGHT 320
 #define ILI9341_ROTATION (ILI9341_MADCTL_MX | ILI9341_MADCTL_BGR)
+*/
 
 // rotate right
 /*
@@ -45,11 +47,11 @@ extern SPI_HandleTypeDef ILI9341_SPI_PORT;
 */
 
 // upside down
-/*
+
 #define ILI9341_WIDTH  240
 #define ILI9341_HEIGHT 320
 #define ILI9341_ROTATION (ILI9341_MADCTL_MY | ILI9341_MADCTL_BGR)
-*/
+
 
 /****************************/
 
