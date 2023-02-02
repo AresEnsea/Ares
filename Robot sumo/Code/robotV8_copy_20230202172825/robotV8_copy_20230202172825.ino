@@ -1,49 +1,58 @@
 #include <SoftwareSerial.h>
 
-SoftwareSerial BTSerial(10, 11);  // RX | TX
+SoftwareSerial BTSerial(12, 11);  // RX | TX
 
-#define LEFT_SPEED 5
-#define LEFT_DIR 2
+#define LEFT_SPEED 6
+#define LEFT_DIR1 2
+#define LEFT_DIR2 4
 
-#define RIGHT_SPEED 6
-#define RIGHT_DIR 3
-
-#define LEFT_FORWARD LOW
-#define LEFT_BACKWARD HIGH
-
-#define RIGHT_FORWARD HIGH
-#define RIGHT_BACKWARD LOW
+#define RIGHT_SPEED 5
+#define RIGHT_DIR1 8
+#define RIGHT_DIR2 7
 
 void driveMotors(int lmot, int rmot) {
   if (((lmot & 0x01) == 0) && ((rmot & 0x01) == 0)) {
-    digitalWrite(LEFT_DIR, LEFT_BACKWARD);
+
+    digitalWrite(LEFT_DIR1, HIGH);
+    digitalWrite(LEFT_DIR2, LOW);
     analogWrite(LEFT_SPEED, lmot);
-    digitalWrite(RIGHT_DIR, RIGHT_FORWARD);
+    digitalWrite(RIGHT_DIR1, LOW);
+    digitalWrite(RIGHT_DIR2, HIGH);
     analogWrite(RIGHT_SPEED, rmot);
+    /*tourne a gauche*/
   } else if ((lmot & 0x01) == 1 && ((rmot & 0x01) == 0)) {
-    digitalWrite(LEFT_DIR, LEFT_FORWARD);
+    digitalWrite(LEFT_DIR2, LOW);
+    digitalWrite(LEFT_DIR1, HIGH);
     analogWrite(LEFT_SPEED, lmot);
-    digitalWrite(RIGHT_DIR, RIGHT_FORWARD);
+    digitalWrite(RIGHT_DIR1, HIGH);
+    digitalWrite(RIGHT_DIR2, LOW);
     analogWrite(RIGHT_SPEED, rmot);
-  } else if ((rmot & 0x01) == 1 && ((lmot & 0x01) == 0)) {
-    digitalWrite(LEFT_DIR, LEFT_BACKWARD);
+    }
+   else if ((rmot & 0x01) == 1 && ((lmot & 0x01) == 0)) {
+    digitalWrite(LEFT_DIR1, LOW);
+    digitalWrite(LEFT_DIR2, HIGH);
     analogWrite(LEFT_SPEED, lmot);
-    digitalWrite(RIGHT_DIR, RIGHT_BACKWARD);
-    analogWrite(RIGHT_SPEED, rmot);
+    digitalWrite(RIGHT_DIR2, HIGH);
+    digitalWrite(RIGHT_DIR1, LOW);
+    analogWrite(RIGHT_SPEED, rmot); 
   } else {
-    digitalWrite(LEFT_DIR, LEFT_FORWARD);
+    digitalWrite(LEFT_DIR2, HIGH);
+    digitalWrite(LEFT_DIR1, LOW);
     analogWrite(LEFT_SPEED, lmot);
-    digitalWrite(RIGHT_DIR, RIGHT_BACKWARD);
+    digitalWrite(RIGHT_DIR2, LOW);
+    digitalWrite(RIGHT_DIR1, HIGH);
     analogWrite(RIGHT_SPEED, rmot);
-  }
+  } 
 }
 
 void setup() {
   //Serial.begin(38400);
   BTSerial.begin(38400);
   Serial.begin(115200);
-  pinMode(LEFT_DIR, OUTPUT);
-  pinMode(RIGHT_DIR, OUTPUT);
+  pinMode(LEFT_DIR1, OUTPUT);
+  pinMode(LEFT_DIR2, OUTPUT);
+  pinMode(RIGHT_DIR1, OUTPUT);
+  pinMode(RIGHT_DIR2, OUTPUT);
   pinMode(LEFT_SPEED, OUTPUT);
   pinMode(RIGHT_SPEED, OUTPUT);
 }
