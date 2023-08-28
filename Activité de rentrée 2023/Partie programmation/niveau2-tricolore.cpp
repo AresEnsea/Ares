@@ -28,3 +28,7 @@ int main()
     }
 }
 
+
+//Ceci est une proposition de correction
+//Donc il existe pleins d'autres façons de coder et d'arriver à une solution
+//À vous de trouver celle qui vous plaira !
