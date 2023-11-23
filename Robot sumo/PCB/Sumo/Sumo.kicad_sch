@@ -2144,7 +2144,10 @@
     (property "Footprint" "Diode_SMD:D_SMC" (at 136.525 41.275 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Datasheet" "~" (at 136.525 41.275 0)
+    (property "Datasheet" "https://www.vishay.com/docs/95748/vs-mbrs340m3.pdf" (at 136.525 41.275 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Mouser Part Number" "78-VS-MBRS340-M39AT" (at 136.525 41.275 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "1" (uuid 0284ff0b-75f0-4dcb-85f5-490b54621d89))
@@ -2372,7 +2375,10 @@
     (property "Footprint" "Diode_SMD:D_SMC" (at 66.548 46.609 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Datasheet" "~" (at 66.548 46.609 0)
+    (property "Datasheet" "https://www.vishay.com/docs/95748/vs-mbrs340m3.pdf" (at 66.548 46.609 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Mouser Part Number" "78-VS-MBRS340-M39AT" (at 66.548 46.609 90)
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "1" (uuid 593b2784-960f-44a2-b5a9-1ef4bbebd4e2))
@@ -2491,7 +2497,7 @@
   (symbol (lib_id "Connector:TestPoint") (at 65.405 107.95 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 459b11a5-b0c6-4323-950d-f5370e2be06c)
-    (property "Reference" "RX" (at 66.802 104.0043 0)
+    (property "Reference" "RX1" (at 66.802 104.0043 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "TestPoint" (at 66.802 105.9253 0)
@@ -2507,7 +2513,7 @@
     (instances
       (project "Sumo"
         (path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
-          (reference "RX") (unit 1)
+          (reference "RX1") (unit 1)
         )
       )
     )
@@ -2516,7 +2522,7 @@
   (symbol (lib_id "Connector:TestPoint") (at 196.977 117.475 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 4d458266-2240-41b4-8546-055ab3d3d92b)
-    (property "Reference" "2A" (at 198.374 113.5293 0)
+    (property "Reference" "2A1" (at 198.374 113.5293 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "TestPoint" (at 198.374 115.4503 0)
@@ -2532,7 +2538,7 @@
     (instances
       (project "Sumo"
         (path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
-          (reference "2A") (unit 1)
+          (reference "2A1") (unit 1)
         )
       )
     )
@@ -2567,7 +2573,7 @@
   (symbol (lib_id "Connector:TestPoint") (at 196.977 122.555 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 55b24515-ac90-4a4a-83b1-86666ae62869)
-    (property "Reference" "EN12" (at 198.374 118.6093 0)
+    (property "Reference" "EN1" (at 198.374 118.6093 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "TestPoint" (at 198.374 120.5303 0)
@@ -2583,7 +2589,7 @@
     (instances
       (project "Sumo"
         (path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
-          (reference "EN12") (unit 1)
+          (reference "EN1") (unit 1)
         )
       )
     )
@@ -2602,6 +2608,9 @@
       (effects (font (size 1.27 1.27)) (justify left) hide)
     )
     (property "Datasheet" "http://www.ti.com/lit/ds/symlink/l293.pdf" (at 213.36 109.855 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Mouser Part Number" "595-L293DNE" (at 220.98 127.635 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "1" (uuid 7b38f0f1-c808-40fd-b2d6-944c19cfaf90))
@@ -2666,7 +2675,10 @@
     (property "Footprint" "Fuse:Fuse_0805_2012Metric_Pad1.15x1.40mm_HandSolder" (at 57.15 43.053 90)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Datasheet" "~" (at 57.15 41.275 0)
+    (property "Datasheet" "https://www.vishay.com/docs/28747/mfuserie.pdf" (at 57.15 41.275 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Mouser Part Number" "594-MFU0805FF05000P1" (at 57.15 41.275 90)
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "1" (uuid 6fcd9db6-7451-4724-82b1-d690c61cf4e7))
@@ -2718,6 +2730,9 @@
       (effects (font (size 1.27 1.27) italic) (justify left) hide)
     )
     (property "Datasheet" "https://www.olimex.com/Products/Breadboarding/BB-PWR-3608/resources/MT3608.pdf" (at 114.3 32.385 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Mouser Part Number" "909-SMDICMT3608" (at 120.65 43.815 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "1" (uuid 746b1feb-eb3b-468b-80a6-6ec6c130a27c))
@@ -2874,7 +2889,10 @@
     (property "Footprint" "footprint:WE-PDA" (at 120.65 30.48 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Datasheet" "~" (at 120.65 30.48 0)
+    (property "Datasheet" "https://www.we-online.com/components/products/datasheet/784771100.pdf" (at 120.65 30.48 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Mouser Part Number" "710-784771100" (at 120.65 30.48 90)
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "1" (uuid d540f930-f1b1-4dbe-a658-53337bc671f7))
@@ -3069,7 +3087,7 @@
   (symbol (lib_id "Connector:TestPoint") (at 196.977 112.395 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid b60f2841-1753-4161-bd1f-d642555a4aa8)
-    (property "Reference" "1A" (at 198.374 108.4493 0)
+    (property "Reference" "1A1" (at 198.374 108.4493 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "TestPoint" (at 198.374 110.3703 0)
@@ -3085,7 +3103,7 @@
     (instances
       (project "Sumo"
         (path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
-          (reference "1A") (unit 1)
+          (reference "1A1") (unit 1)
         )
       )
     )
@@ -3094,7 +3112,7 @@
   (symbol (lib_id "Connector:TestPoint") (at 196.977 127.635 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid bc4d433e-19ea-4cca-88c4-ef8fb1fbf651)
-    (property "Reference" "3A" (at 198.374 123.6893 0)
+    (property "Reference" "3A1" (at 198.374 123.6893 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "TestPoint" (at 198.374 125.6103 0)
@@ -3110,7 +3128,7 @@
     (instances
       (project "Sumo"
         (path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
-          (reference "3A") (unit 1)
+          (reference "3A1") (unit 1)
         )
       )
     )
@@ -3119,7 +3137,7 @@
   (symbol (lib_id "Connector:TestPoint") (at 196.977 137.795 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid c15a8aad-ed68-4186-a42e-2d5426ef774f)
-    (property "Reference" "EN34" (at 198.374 133.8493 0)
+    (property "Reference" "EN2" (at 198.374 133.8493 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "TestPoint" (at 198.374 135.7703 0)
@@ -3135,7 +3153,7 @@
     (instances
       (project "Sumo"
         (path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
-          (reference "EN34") (unit 1)
+          (reference "EN2") (unit 1)
         )
       )
     )
@@ -3324,7 +3342,7 @@
   (symbol (lib_id "Connector:TestPoint") (at 196.977 132.715 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid d3a66d0b-c190-4235-a281-5c22dfc8923e)
-    (property "Reference" "4A" (at 198.374 128.7693 0)
+    (property "Reference" "4A1" (at 198.374 128.7693 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "TestPoint" (at 198.374 130.6903 0)
@@ -3340,7 +3358,7 @@
     (instances
       (project "Sumo"
         (path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
-          (reference "4A") (unit 1)
+          (reference "4A1") (unit 1)
         )
       )
     )
@@ -3349,7 +3367,7 @@
   (symbol (lib_id "Connector:TestPoint") (at 59.69 111.76 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid d826beed-fe2b-4b60-a59a-50bddc536e87)
-    (property "Reference" "TX" (at 61.087 107.8143 0)
+    (property "Reference" "TX1" (at 61.087 107.8143 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "TestPoint" (at 61.087 109.7353 0)
@@ -3365,7 +3383,7 @@
     (instances
       (project "Sumo"
         (path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
-          (reference "TX") (unit 1)
+          (reference "TX1") (unit 1)
         )
       )
     )
@@ -3374,7 +3392,7 @@
   (symbol (lib_id "Connector:Conn_01x06_Female") (at 53.34 116.205 0) (mirror y) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid d88de99d-4158-4aca-b5b4-ed05e126b645)
-    (property "Reference" "BT" (at 53.975 109.5789 0)
+    (property "Reference" "BT1" (at 53.975 109.5789 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "BT" (at 53.975 109.4764 0)
@@ -3395,7 +3413,7 @@
     (instances
       (project "Sumo"
         (path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
-          (reference "BT") (unit 1)
+          (reference "BT1") (unit 1)
         )
       )
     )
